@@ -23,32 +23,29 @@ const pizzas = [
 let x = Math.floor(Math.random() * 3);
 
 function a(){
-    console.log("თქვენი პიცა" +  pizzas[x].name + "მზადდება");
+    appendLi(" თქვენი პიცა " +  pizzas[x].name + " მზადდება");
 }
 let n = new Date();
 
 function b(){
-    console.log("თქვენი პიცა გზაშია");
+    appendLi(" თქვენი პიცა გზაშია");
     setTimeout(c, 5000 );
     
 }
 
 function c(){
-    console.log("თქვენი პიცა ადგილზეა, ფასი - " + pizzas[x].price + " ლარი")
+    appendLi(" თქვენი პიცა ადგილზეა, ფასი - " + pizzas[x].price + " ლარი")
     let m = new Date ();
-    console.log("                             შეკვეთის სრული დროა   " + (m-n)  + "  წამი ");
+    appendLi(" შეკვეთის  სრული  დროა  " + (m-n)/1000 + "  წამი ");
 }
 
-
+const ul = document.getElementById("list");
+function appendLi(text){
+    const li = document.createElement("li");
+    li.textContent=text;
+    ul.appendChild(li);
+} 
 
 a();
 
-
 setTimeout (b, 2000);
-
-
-
-
-
-
-
